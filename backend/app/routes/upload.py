@@ -1,4 +1,5 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
+from app.services.clause_service import split_into_clauses
 import os
 import shutil
 
@@ -24,7 +25,10 @@ async def upload_pdf(file: UploadFile = File(...)):
 
     extracted_text = extract_text_from_pdf(file_path)
 
+    clauses = split_into_clauses(extracted_text)
+
     return {
-        "filename": file.filename,
-        "text": extracted_text
-    }
+    "filename": file.filename,
+    "number_of_clauses": len(clauses),
+    "clauses": clauses
+}
