@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.routes.upload import router as upload_router
+from app.routes.analyze import router as analyze_router
 
 app = FastAPI(
     title="Contract Risk Tagger API",
@@ -7,6 +8,7 @@ app = FastAPI(
 )
 
 app.include_router(upload_router)
+app.include_router(analyze_router)
 
 @app.get("/")
 def home():

@@ -2,3 +2,8 @@ fastapi
 uvicorn[standard]
 python-multipart
 pymupdf
+groq
+python-dotenv
+py-algorand-sdk
+py-algorand-sdk
+x402-avm[fastapi,avm]
